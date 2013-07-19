@@ -1,4 +1,6 @@
 EvE Ship Display Tool (v3.0) developed by Spark's (Chris Sheppard)
+===
+
 Special thanks to Hans Glockenspiel (In-Game name) for helping out
 Another thank you to kazhkaz from the Eve Dev Killboard for his code input (Added Region name to the kill display on v0.99).
 
@@ -11,6 +13,7 @@ Please provide as much information as you can regarding the error. A link to the
 
 
 Change log:
+===
 3.0: Asorted fixes across all ships. Complete overhaul of the stat system. Clean up of the code.
 2.9: Fixed Stealth bomber Powergrid issues. Fixed Acillary Shield bosters. Made ship images feed from Eve-online.
 2.8: Fixed inferno modules and sorted new covert ops ships background positions
@@ -46,6 +49,7 @@ Change log:
 
 
 To install:
+===
 1. Simply extract the contents to your desktop
 2. Upload the mods folder to your killboard directory
 3. Activate the module in your Admin section
