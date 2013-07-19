@@ -1,0 +1,1572 @@
+@charset "UTF-8";
+/*
+	Element CSS style sheet
+	Modified 03/06/2010
+*/
+
+/*Reset*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td
+{
+	/*margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+	color: #fff;
+	font-family: "Segoe UI", "Lucida Granda", "Trebuchet", "Trebuchet MS", "Verdana", sans-serif;
+	font-size: 11px;*/
+}
+
+img {
+	border:none;
+	border-collapse: collapse;
+}
+
+#fitcontainer {
+	position: relative;
+	width: 770px;
+	height: 523px;
+	overflow:hidden;
+}
+
+#backImg {
+
+	position:absolute;
+	top: 0px;
+	right: 0px;
+	width: 770px;
+	height: 520px;
+	background-image: url('../images/panelBackground.png');
+
+}
+
+#amarrbackImg {
+
+	width: 770px;
+	height: 520px;
+	background-image: url('../images/amarr/panelBackground.png');
+
+}
+
+#caldaribackImg {
+
+	width: 770px;
+	height: 520px;
+	background-image: url('../images/caldari/panelBackground.png');
+
+}
+
+#gallentebackImg {
+
+	width: 770px;
+	height: 520px;
+	background-image: url('../images/gallente/panelBackground.png');
+
+}
+
+#minmatarbackImg {
+
+	width: 770px;
+	height: 520px;
+	/*background-image: url('../images/minmatar/panelBackground.png');*/
+	background-image: url('../images/backdrop.png');
+}
+
+ul {
+	list-style-type: none;
+}
+
+
+li#d_turret{
+	background: url("../images/flashImage/gun.png") no-repeat transparent;
+
+	position:absolute;
+	top: 5px;
+	left: 60px;
+	width:32px;
+	height:32px;
+
+}
+
+li#d_missile{
+	background: url("../images/flashImage/missile.png") no-repeat transparent;
+
+	position:absolute;
+	top: 5px;
+	left: 340px;
+	width:32px;
+	height:32px;
+
+}
+
+li#d_turcount_0{
+	background: url("../images/flashImage/tur_0.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 75px;
+	width:66px;
+	height:42px;
+
+}
+
+li#d_turcount_1{
+	background: url("../images/flashImage/tur_1.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 75px;
+	width:66px;
+	height:42px;
+
+}
+
+li#d_turcount_2{
+	background: url("../images/flashImage/tur_2.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 75px;
+	width:66px;
+	height:42px;
+
+}
+
+li#d_turcount_3{
+	background: url("../images/flashImage/tur_3.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 75px;
+	width:66px;
+	height:42px;
+
+}
+
+li#d_turcount_4{
+	background: url("../images/flashImage/tur_4.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 75px;
+	width:66px;
+	height:42px;
+
+}
+
+li#d_turcount_5{
+	background: url("../images/flashImage/tur_5.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 75px;
+	width:66px;
+	height:42px;
+
+}
+
+li#d_turcount_6{
+	background: url("../images/flashImage/tur_6.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 75px;
+	width:66px;
+	height:42px;
+
+}
+
+li#d_turcount_7{
+	background: url("../images/flashImage/tur_7.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 75px;
+	width:66px;
+	height:42px;
+
+}
+
+li#d_turcount_8{
+	background: url("../images/flashImage/tur_8.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 75px;
+	width:66px;
+	height:42px;
+
+}
+
+li#d_miscount_0{
+	background: url("../images/flashImage/mis_0.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 290px;
+	width:66px;
+	height:42px;
+
+}
+
+li#d_miscount_1{
+	background: url("../images/flashImage/mis_1.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 290px;
+	width:66px;
+	height:42px;
+
+}
+li#d_miscount_2{
+	background: url("../images/flashImage/mis_2.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 290px;
+	width:66px;
+	height:42px;
+
+}
+li#d_miscount_3{
+	background: url("../images/flashImage/mis_3.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 290px;
+	width:66px;
+	height:42px;
+
+}
+li#d_miscount_4{
+	background: url("../images/flashImage/mis_4.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 290px;
+	width:66px;
+	height:42px;
+
+}
+li#d_miscount_5{
+	background: url("../images/flashImage/mis_5.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 290px;
+	width:66px;
+	height:42px;
+
+}
+li#d_miscount_6{
+	background: url("../images/flashImage/mis_6.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 290px;
+	width:66px;
+	height:42px;
+
+}
+li#d_miscount_7{
+	background: url("../images/flashImage/mis_7.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 290px;
+	width:66px;
+	height:42px;
+
+}
+li#d_miscount_8{
+	background: url("../images/flashImage/mis_8.png") no-repeat transparent;
+
+	position:absolute;
+	top: 10px;
+	left: 290px;
+	width:66px;
+	height:42px;
+
+}
+
+
+
+
+
+
+
+
+
+#infoBar {
+	width:508px;
+	float:left;
+	padding:0px;
+	margin:0px;
+	height:auto;
+	height: 521px;
+
+}
+
+
+#shipcontainer {
+	background-image: url("http://terrahawk.elementstudio.co.uk/newdir/mods/ship_tool_kb/images/flashImage/shadow.png");
+	background-position: 0% 0%;
+	background-repeat: repeat-x;
+	float:left;
+	height: 436px;
+	width:100%;
+}
+
+#infoBar .liheader {
+}
+
+#infoBar .libody{
+	height:64px;
+}
+
+#victimBodycontainer li {
+	line-height:11px;
+}
+
+.portmini {
+	height:32px;
+}
+
+.infosect {
+	float:left;
+}
+.infosect #victimBodycontainer{
+	width: 504px;
+	padding:0px;
+	/*height: 68px;*/
+	float:left;
+}
+
+.infosect #topDamBodycontianer{
+	width: 128px;
+	padding:0px;
+	float:left;
+	margin-right:2px;
+}
+
+.infosect #finalBodycontianer{
+	width: 128px;
+	padding:0px;
+	float:left;
+	margin-left:2px;
+}
+
+.infosect .libody{
+	background-image:none;
+	height:64px;
+	float:left;
+}
+
+#topDamBodycontianer .libody img,
+#finalBodycontianer .libody img {
+	float:left;
+}
+
+
+#capContainer {
+	padding:0px;
+	height: 28px;
+}
+#capContainer .cap_left {
+	float:left;
+	width:30px;
+	height: 28px;
+	padding:2px 10px;
+	margin:0px;
+}
+#capContainer .cap_right {
+	float:right;
+	width:200px;
+	padding:0px;
+	margin:0px;
+}
+
+#infoBar #victimcol {
+	padding: 0px;
+	width:100px;
+	float:left;
+	height:64px;
+}
+
+#infoBar #victimcol1,
+#infoBar #victimcol2 {
+	padding:0px;
+	width:202px;
+	float:left;
+	height:64px;
+}
+
+#infoBar #victimcol li.port {
+	float:left;
+	width:64px;
+	padding:0px;
+}
+
+#infoBar #victimcol1 li,
+#infoBar #victimcol2 li {
+	float:left;
+	width:200px;
+	margin: 0px 0px 2px 0px;
+}
+
+#infoBar #victimcol1 span.r_wid,
+#infoBar #victimcol2 span.r_wid{
+	float:right;
+	width:145px;
+}
+
+
+.shipview {
+	float:left;
+	position:relative;
+	width:430px;
+	height: 425px;
+	margin-top: 5px;
+	overflow:hidden;
+}
+
+.shipview #fitting_view {
+	position:absolute;
+	top: 5px;
+	left: 3px;
+	background: url("../images/background.png") no-repeat transparent;
+	width:430px;
+	height: 425px;
+}
+.shipview canvas#shipCover {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+}
+.shipview canvas#shipcpu {
+	position:absolute;
+	top: 210px;
+	left: 358px;
+}
+.shipview canvas#shipprg {
+	position:absolute;
+	top: 355px;
+	left: 215px;
+}
+
+.shipview canvas#shipcal {
+	position:absolute;
+	top: 65px;
+	left: 0px;
+}
+
+.shipview #h0 {
+	position:absolute;
+	top: 45px;
+	left: 88px;
+}
+
+.shipview #h1 {
+	position:absolute;
+	top: 25px;
+	left: 118px;
+}
+
+.shipview #h2 {
+	position:absolute;
+	top: 15px;
+	left: 148px;
+}
+
+.shipview #h3 {
+	position:absolute;
+	top: 10px;
+	left: 179px;
+}
+
+.shipview #h4 {
+	position:absolute;
+	top: 10px;
+	left: 210px;
+}
+
+.shipview #h5 {
+	position:absolute;
+	top: 17px;
+	left: 243px;
+}
+
+.shipview #h6 {
+	position:absolute;
+	top: 25px;
+	left: 273px;
+}
+
+.shipview #h7 {
+	position:absolute;
+	top: 40px;
+	left: 298px;
+}
+
+
+
+
+.shipview #m0 {
+	position:absolute;
+	top: 85px;
+	left: 338px;
+}
+
+.shipview #m1 {
+	position:absolute;
+	top: 115px;
+	left: 358px;
+}
+
+.shipview #m2 {
+	position:absolute;
+	top: 145px;
+	left: 368px;
+}
+
+.shipview #m3 {
+	position:absolute;
+	top: 175px;
+	left: 373px;
+}
+
+.shipview #m4 {
+	position:absolute;
+	top: 205px;
+	left: 373px;
+}
+
+.shipview #m5 {
+	position:absolute;
+	top: 237px;
+	left: 368px;
+}
+
+.shipview #m6 {
+	position:absolute;
+	top: 267px;
+	left: 358px;
+}
+
+.shipview #m7 {
+	position:absolute;
+	top: 295px;
+	left: 342px;
+}
+
+
+.shipview #l0 {
+	position:absolute;
+	top: 338px;
+	left: 298px;
+	z-index: 4;
+}
+
+.shipview #l1 {
+	position:absolute;
+	top: 353px;
+	left: 271px;
+	z-index: 4;
+}
+
+.shipview #l2 {
+	position:absolute;
+	top: 365px;
+	left: 243px;
+	z-index: 4;
+}
+
+.shipview #l3 {
+	position:absolute;
+	top: 370px;
+	left: 213px;
+	z-index: 4;
+}
+
+.shipview #l4 {
+	position:absolute;
+	top: 370px;
+	left: 178px;
+	z-index: 4;
+}
+
+.shipview #l5 {
+	position:absolute;
+	top: 365px;
+	left: 148px;
+	z-index: 3;
+}
+
+.shipview #l6 {
+	position:absolute;
+	top: 356px;
+	left: 120px;
+	z-index: 2;
+}
+
+.shipview #l7 {
+	position:absolute;
+	top: 340px;
+	left: 92px;
+	z-index: 1;
+}
+
+
+
+.shipview #r0 {
+	position:absolute;
+	top: 137px;
+	left: 22px;
+	z-index: 3;
+}
+
+.shipview #r1 {
+	position:absolute;
+	top: 107px;
+	left: 35px;
+	z-index: 2;
+}
+
+.shipview #r2 {
+	position:absolute;
+	top: 80px;
+	left: 52px;
+	z-index: 1;
+}
+
+
+
+
+
+.shipview #s0 {
+	position:absolute;
+	top: 305px;
+	left: 55px;
+	z-index: 4;
+}
+
+.shipview #s1 {
+	position:absolute;
+	top: 277px;
+	left: 35px;
+	z-index: 3;
+}
+
+.shipview #s2 {
+	position:absolute;
+	top: 245px;
+	left: 25px;
+	z-index: 2;
+}
+
+.shipview #s3 {
+	position:absolute;
+	top: 215px;
+	left: 15px;
+	z-index: 1;
+}
+
+.shipview #s4 {
+	position:absolute;
+	top: 180px;
+	left: 15px;
+	z-index: 1;
+}
+
+
+
+.shipview #fitting_grid {
+	position:absolute;
+	bottom: 0px;
+	right: 0px;
+	text-align:right;
+	width:100px;
+	padding:0px;
+}
+
+.shipview #km_posting {
+	position:absolute;
+	bottom: 0px;
+	left: 5px;
+	width:200px;
+	padding:0px;
+}
+.shipview #km_posting span{
+	float:right;
+	width:140px;
+}
+
+.shipview #fitting_grid li.space_grid {
+	height:10px;
+}
+
+
+.shipview #fitting_cal {
+	position:absolute;
+	top: 30px;
+	left: 5px;
+	padding:0px;
+}
+
+
+#dronebar,
+#cargobar {
+	width:32px;
+	height:192px;
+	float:right;
+}
+#dronebar ul.containers,
+#cargobar ul.containers{
+	width:32px;
+	height:192px;
+	padding:0px;
+}
+#dronebar ul.containers li.libody,
+#dronebar ul.containers li.libody ul,
+#cargobar ul.containers li.libody,
+#cargobar ul.containers li.libody ul{
+	height:160px;
+	padding:0px;
+	margin:0px;
+	width:32px;
+}
+
+#dronebar ul.containers li.libody ul li,
+#dronebar ul.containers li.liheader,
+#cargobar ul.containers li.libody ul li,
+#cargobar ul.containers li.liheader{
+	height:32px;
+	padding:0px;
+	margin:0px;
+	width:32px;
+}
+
+#dronebar ul.containers li.liheader {
+	background: url('../images/flashImage/Icon56_05.png') no-repeat top left;
+}
+
+#cargobar ul.containers li.liheader{
+	background: url('../images/flashImage/Icon03_13.png') no-repeat top left;
+}
+
+.techI {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.techII {
+	position:absolute;
+	top: 5px;
+	left: 4px;
+	background: url('../images/flashImage/t2.png') no-repeat top left;
+	width: 10px;
+	height: 10px;
+	z-index:1;
+}
+
+.techIII {
+	position:absolute;
+	top: 5px;
+	left: 4px;
+	background: url('../images/flashImage/t3.png') no-repeat top left;
+	width: 10px;
+	height: 10px;
+	z-index:1;
+}
+
+.faction {
+	position:absolute;
+	top: 5px;
+	left: 4px;
+	background: url('../images/flashImage/f.png') no-repeat top left;
+	width: 10px;
+	height: 10px;
+	z-index:1;
+}
+
+.officer {
+	position:absolute;
+	top: 5px;
+	left: 4px;
+	background: url('../images/flashImage/o.png') no-repeat top left;
+	width: 10px;
+	height: 10px;
+	z-index:1;
+}
+
+.deadspace {
+	position:absolute;
+	top: 5px;
+	left: 4px;
+	background: url('../images/flashImage/d.png') no-repeat top left;
+	width: 10px;
+	height: 10px;
+	z-index:1;
+}
+
+.storyline {
+   position:absolute;
+   top: 5px;
+   left: 4px;
+   background: url('../images/flashImage/s.png') no-repeat top left;
+   width: 10px;
+   height: 10px;
+   z-index:1;
+}
+
+
+.iconStable .techI {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.iconStable .techII {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background: url('../images/flashImage/t2.png') no-repeat top left;
+	width: 10px;
+	height: 10px;
+}
+
+.iconStable .techIII {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background: url('../images/flashImage/t3.png') no-repeat top left;
+	width: 10px;
+	height: 10px;
+}
+
+.iconStable .faction {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background: url('../images/flashImage/f.png') no-repeat top left;
+	width: 10px;
+	height: 10px;
+}
+
+.iconStable .officer {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background: url('../images/flashImage/o.png') no-repeat top left;
+	width: 10px;
+	height: 10px;
+}
+
+.iconStable .deadspace {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background: url('../images/flashImage/d.png') no-repeat top left;
+	width: 10px;
+	height: 10px;
+}
+
+
+#shipbackgroundMim {
+
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background: url('../images/minmatar.jpg') no-repeat;
+	width: 600px;
+	height: 600px;
+	z-index:0;
+}
+
+#shipbackgroundGal {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background: url('../images/gallente.jpg') no-repeat;
+	width: 600px;
+	height: 600px;
+	z-index:0;
+}
+
+#shipbackgroundCal {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background: url('../images/caldari.jpg') no-repeat;
+	width: 600px;
+	height: 600px;
+	z-index:0;
+}
+
+#shipbackgroundAma {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background: url('../images/amarr.jpg') no-repeat;
+	width: 600px;
+	height: 600px;
+	z-index:0;
+}
+
+#shipbackgroundother {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background: url('../images/other.jpg') no-repeat;
+	width: 600px;
+	height: 600px;
+	z-index:0;
+}
+
+#shipbackgroundProt {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background: url('../images/protbackground.jpg') no-repeat;
+	width: 600px;
+	height: 600px;
+	z-index:0;
+}
+
+#shipbackgroundLeg {
+
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background: url('../images/legbackground.jpg') no-repeat;
+	width: 600px;
+	height: 600px;
+	z-index:0;
+}
+
+#shipbackgroundTen {
+
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background: url('../images/tenbackground.jpg') no-repeat;
+	width: 600px;
+	height: 600px;
+	z-index:0;
+}
+
+#shipbackgroundLok {
+
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background: url('../images/lokibackground.jpg') no-repeat;
+	width: 600px;
+	height: 600px;
+	z-index:0;
+}
+
+
+/*#shipImg {
+	position:absolute;
+	top: 5;
+	left: 20;
+	width:450px;
+	background: url('../img/ships/256_256/586.png') no-repeat;
+}*/
+
+
+
+/*#shipImg {
+	position:absolute;
+	top: 80px;
+	left: 85px;
+	width:256px;
+	height:256px;
+}*/
+
+
+#shipImg {
+	position:absolute;
+	top: 10px;
+	left: 15px;
+	width:405px;
+	height:405px;
+}
+
+#statbar {
+	float:right;
+	width:262px;
+
+}
+
+
+
+
+
+
+
+
+#infoIcon {
+	position:absolute;
+	top: 25px;
+	left: 5px;
+}
+
+
+
+#frame {
+	width:499px;
+	height:399px;
+	background-color: #222222;
+	font-size: 10px;
+	overflow: none;
+}
+
+
+
+
+
+a.linkmoveleft {
+
+	float:left;
+	margin-left:20px;
+
+}
+
+a.linkmoveright {
+
+	float:right;
+	margin-right:20px;
+
+}
+
+
+div#dialog {
+
+padding:2px;
+background-color: #333333;
+width:380px;
+height: 450px;
+position: absolute;
+z-index:100;
+left:50%;
+top:50%;
+margin-left: -190px;
+margin-top: -300px;
+
+}
+
+div#dialog_head {
+font-weight: 700;
+text-align:center;
+height:25px;
+padding-top: 5px;
+padding-bottom:5px;
+}
+
+
+div#dialog_head_font {
+font-size: 16px;
+margin-bottom: 3px;
+}
+
+div#dialog_footer {
+text-align:center;
+height:25px;
+padding-top:7px;
+
+}
+
+span.imgslot {
+float:left;
+width:40px;
+display:block;
+height:22px;
+margin-top:0px;
+}
+
+span.imgslotAbs {
+position:absolute;
+border: none;
+height:32px;
+text-align:left;
+width:40px;
+
+}
+
+span.contentname {
+float:left;
+width:440px;
+display:block;
+height:22px;
+margin-top:10px;
+
+}
+
+
+
+span.contentnameA {
+float:left;
+width:440px;
+margin-left:40px;
+height:22px;
+display:block;
+margin-top:10px;
+
+}
+
+
+
+
+span.modcount {
+float:right;
+padding-right: 25px;
+margin-top:-12px;
+
+}
+
+
+span.currentValue {
+float:left;
+width:285px;
+display:block;
+height:22px;
+margin-top:10px;
+
+}
+
+
+
+
+
+
+
+span.imgSlotListMain {
+float:left;
+width:40px;
+display:block;
+
+}
+
+span.nameListMain {
+float:left;
+width:332px;
+display:block;
+}
+
+span.byListMain {
+float:left;
+width:285px;
+display:block;
+
+}
+
+span.goToListMain {
+float:left;
+width:100px;
+display:block;
+
+}
+
+#statbar ul.containers {
+	width:260px;
+	padding:0px 0px 6px 0px;
+	margin:0px;
+}
+
+.liheader {
+	padding:3px;
+	height:12px;
+}
+.liheader span.arrow {
+	background-image: url("../images/flashImage/arrow.gif");
+	background-position:left center;
+	background-repeat: no-repeat;
+	padding-left:15px;
+}
+
+.liheader span.right{
+	display:block;
+	float:right;
+	padding-right: 5px;
+}
+
+.libody {
+	background-image: url("../images/flashImage/shadow.png");
+	background-position: top left;
+	background-repeat: repeat-x;
+	padding-top: 4px;
+	min-height:35px;
+}
+
+.libody span.full {
+	display:block;
+	padding: 3px 5px 3px 35px;
+}
+.libody span.full_nopad {
+	display:block;
+	padding: 0px;
+}
+
+.libody ul.tier3 {
+	height: 32px;
+}
+.libody ul.tier3 li {
+	float:left;
+	width:33%;
+	height: 30px;
+}
+
+.libody ul.tier5 {
+	height: 32px;
+	padding:0px;
+	margin:0px;
+}
+.libody ul.tier5 li {
+	float:left;
+	width:41px;
+	height: 30px;
+}
+
+.libody ul.tier5 li p{
+	padding:0px;
+	margin:0px;
+}
+
+.libody ul.tier5 li.title {
+	float:left;
+	width:96px;
+	height: 30px;
+}
+#headerEM {
+	background: url("../images/flashImage/Icon22_20.png") top center no-repeat transparent;
+	width:41px;
+}
+
+#headerTH {
+	background: url("../images/flashImage/Icon22_18.png") top center no-repeat transparent;
+	width:41px;
+}
+
+#headerKI {
+	background: url("../images/flashImage/Icon22_17.png") top center no-repeat transparent;
+	width:41px;
+}
+
+#headerEX {
+	background: url("../images/flashImage/Icon22_19.png") top center no-repeat transparent;
+	width:41px;
+}
+
+ul.header #pass{
+	background: url("../images/flashImage/pass.png") no-repeat transparent;
+	text-indent:32px;
+}
+
+ul.header #act{
+	background: url("../images/flashImage/act.png") no-repeat transparent;
+	text-indent:32px;
+}
+
+ul.header #arm{
+	background: url("../images/flashImage/arm.png") no-repeat transparent;
+	text-indent:32px;
+}
+
+ul.header #hull{
+	background: url("../images/flashImage/arm.png") no-repeat transparent;
+	text-indent:32px;
+}
+
+
+
+ul.shield .title {
+	background: url("../images/flashImage/Icon22_07.png") no-repeat transparent;
+	text-indent:32px;
+}
+
+ul.armour .title {
+	background: url("../images/flashImage/Icon22_06.png") no-repeat transparent;
+	text-indent:32px;
+}
+
+ul.hull .title {
+	background: url("../images/flashImage/2603_32.png") no-repeat transparent;
+	text-indent:32px;
+}
+
+
+
+
+.libody ul.tier5 li#shieldEM,
+.libody ul.tier5 li#hullEM,
+.libody ul.tier5 li#armourEM {
+	background-color:#23303A;
+	height:15px;
+	width:35px;
+	margin:0px 3px;
+	text-align:center;
+	margin-top:7px;
+	position:relative;
+}
+
+.libody ul.tier5 li#shieldTH,
+.libody ul.tier5 li#hullTH,
+.libody ul.tier5 li#armourTH {
+	background-color:#3B2424;
+	height:15px;
+	width:35px;
+	margin:0px 3px;
+	text-align:center;
+	margin-top:7px;
+	position:relative;
+}
+
+.libody ul.tier5 li#shieldKI,
+.libody ul.tier5 li#hullKI,
+.libody ul.tier5 li#armourKI {
+	background-color:#383838;
+	height:15px;
+	width:35px;
+	margin:0px 3px;
+	text-align:center;
+	margin-top:7px;
+	position:relative;
+}
+.libody ul.tier5 li#shieldEX,
+.libody ul.tier5 li#armourEX,
+.libody ul.tier5 li#hullEX {
+	background-color:#3C3325;
+	height:15px;
+	width:35px;
+	margin:0px 3px;
+	text-align:center;
+	margin-top:7px;
+	position:relative;
+}
+
+
+
+
+
+
+.libody ul.tier5 li#shieldEM span.res_back,
+.libody ul.tier5 li#armourEM span.res_back,
+.libody ul.tier5 li#hullEM span.res_back {
+	display:block;
+	background:url('../images/flashImage/r_blue.jpg');
+	background-repeat:repeat-x;
+	height:15px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:0;
+}
+
+
+.libody ul.tier5 li#shieldTH span.res_back,
+.libody ul.tier5 li#armourTH span.res_back,
+.libody ul.tier5 li#hullTH span.res_back {
+	display:block;
+	background:url('../images/flashImage/r_red.jpg');
+	background-repeat:repeat-x;
+	height:15px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:0;
+}
+
+
+.libody ul.tier5 li#shieldKI span.res_back,
+.libody ul.tier5 li#armourKI span.res_back,
+.libody ul.tier5 li#hullKI span.res_back {
+	display:block;
+	background:url('../images/flashImage/r_grey.jpg');
+	background-repeat:repeat-x;
+	height:15px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:0;
+}
+
+.libody ul.tier5 li#shieldEX span.res_back,
+.libody ul.tier5 li#armourEX span.res_back,
+.libody ul.tier5 li#hullEX span.res_back {
+	display:block;
+	background:url('../images/flashImage/r_gold.jpg');
+	background-repeat:repeat-x;
+	height:15px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:0;
+}
+
+.res_push {
+	background:none;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:1;
+	width:35px;
+	text-align:center;
+}
+
+.libody  ul.tier2 {
+	height: 64px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.libody  ul.tier2 li{
+	width:110px;
+	float:left;
+	height:32px;
+	margin: 0px 10px;
+}
+
+
+li.libody ul.tier2 li#scanres{
+	background: url("../images/flashImage/Icon03_09.png") no-repeat transparent;
+}
+
+li.libody ul.tier2 li#sigrad{
+	background: url("../images/flashImage/Icon22_14.png") no-repeat transparent;
+}
+
+li.libody ul.tier2 li#targets{
+	background: url("../images/flashImage/icon04_12.png") no-repeat transparent;
+}
+
+li.libody ul.tier2 li#Icon63_14{
+	background: url("../images/flashImage/Icon63_14.png") no-repeat transparent;
+}
+
+li.libody ul.tier2 li#Icon63_15{
+	background: url("../images/flashImage/Icon63_15.png") no-repeat transparent;
+}
+
+li.libody ul.tier2 li#Icon63_16{
+	background: url("../images/flashImage/Icon63_16.png") no-repeat transparent;
+}
+
+li.libody ul.tier2 li#Icon63_13{
+	background: url("../images/flashImage/Icon63_13.png") no-repeat transparent;
+}
+li.libody ul.tier2 li{
+	padding-left:40px;
+	width:68px;
+}
+
+.libody  ul.tier3 {
+	margin: 0px;
+	padding: 0px;
+}
+
+li.libody ul.tier3 li {
+	padding-left:34px;
+	width:52px;
+}
+
+li.libody ul.tier3 li#turret{
+	background: url("../images/flashImage/gun.png") no-repeat transparent;
+}
+
+li.libody ul.tier3 li#drone{
+	background: url("../images/flashImage/Icon56_05.png") no-repeat transparent;
+}
+
+li.libody ul.tier3 li#missile{
+	background: url("../images/flashImage/missile.png") no-repeat transparent;
+}
+
+
+li.libody ul.tier3 li#mass{
+	background: url("../images/flashImage/Icon02_10.png") no-repeat transparent;
+}
+
+li.libody ul.tier3 li#warp{
+	background: url("../images/flashImage/warp.png") no-repeat transparent;
+}
+
+li.libody ul.tier2 li#propab{
+	background: url("../images/flashImage/icon03_02.png") no-repeat transparent;
+}
+
+li.libody ul.tier2 li#propmwd{
+	background: url("../images/flashImage/icon03_01.png") no-repeat transparent;
+}
+
+.libody ul#tier232 {
+	height:32px;
+}
+
+.libody ul li.fixheight {
+	padding-top: 8px;
+	height:24px !important;
+}
+
+ul#cap{
+	background-image: url("../images/flashImage/cap.png");
+	background-position: left center;
+	background-repeat: no-repeat;
+	margin-left: 10px;
+	height:35px;
+	width:210px;
+	padding: 2px 0px 5px 40px;
+}
+ul#capfull{
+	background-image: url("../images/flashImage/capful.png");
+	background-position: left center;
+	background-repeat: no-repeat;
+	margin-left: 10px;
+	height:35px;
+	width:210px;
+	padding: 2px 0px 5px 40px;
+}
+li.libody  ul#cap li {
+	margin: 3px 0px;
+}
+
+#cap0 {
+	background: url("../images/flashImage/cap0.png") center center no-repeat;
+}
+#cap10 {
+	background: url("../images/flashImage/cap10.png") center center no-repeat;
+}
+#cap20 {
+	background: url("../images/flashImage/cap20.png") center center no-repeat;
+}
+#cap30 {
+	background: url("../images/flashImage/cap30.png") center center no-repeat;
+}
+#cap40 {
+	background: url("../images/flashImage/cap40.png") center center no-repeat;
+}
+#cap50 {
+	background: url("../images/flashImage/cap50.png") center center no-repeat;
+}
+#cap60 {
+	background: url("../images/flashImage/cap60.png") center center no-repeat;
+}
+#cap70 {
+	background: url("../images/flashImage/cap70.png") center center no-repeat;
+}
+#cap80 {
+	background: url("../images/flashImage/cap80.png") center center no-repeat;
+}
+#cap90 {
+	background: url("../images/flashImage/cap90.png") center center no-repeat;
+}
+#cap100 {
+	background: url("../images/flashImage/cap100.png") center center no-repeat;
+}
