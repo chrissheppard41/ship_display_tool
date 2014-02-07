@@ -10,7 +10,7 @@ Any issues with the Display tool Please send Spark's in Game EvE Mail or go to t
 
 Please provide as much information as you can regarding the error. A link to the killmail would be great aswell.
 
-
+Salvoxia has been awesome in adding tweaks to the codebase
 
 Change log:
 ===
