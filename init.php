@@ -630,7 +630,7 @@ function getShipStats($param_ship) {
 	//global $shipStats;
 
 	$qry = new DBQuery();
-	$qry->execute("select kb3_invtypes.typeID, kb3_invtypes.description from kb3_invtypes WHERE kb3_invtypes.typeName = '".$param_ship."'");
+	$qry->execute("select kb3_invtypes.typeID, kb3_invtypes.description from kb3_invtypes WHERE kb3_invtypes.typeName = '".$qry->escape($param_ship)."'");
 	$typeID = $qry->getRow();
 
 
