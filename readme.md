@@ -1,12 +1,11 @@
-EvE Ship Display Tool (v3.0) developed by Spark's (Chris Sheppard)
+EvE Ship Display Tool (v3.5) developed by Spark's (Chris Sheppard)
 ===
 
-Special thanks to Hans Glockenspiel (In-Game name) for helping out
-Another thank you to kazhkaz from the Eve Dev Killboard for his code input (Added Region name to the kill display on v0.99).
+Special thanks to Hans Glockenspiel (In-Game name) for helping out. Salvoxia for being a long term supporter and everyone else who contributed.
 
 The Stats may not be 100% correct but maybe corrected so please contact me, my aim is to make sure that these stats are correct.
 
-Any issues with the Display tool Please send Spark's in Game EvE Mail or go to the eve-dev forum to post: Here. 
+Any issues with the Display tool Please send Spark's in Game EvE Mail or go to the eve-dev forum to post: Here.
 
 Please provide as much information as you can regarding the error. A link to the killmail would be great aswell.
 
@@ -14,6 +13,8 @@ Salvoxia has been awesome in adding tweaks to the codebase
 
 Change log:
 ===
+3.5: Major code improvements. Performance boost. Fix for the new version of the killboard. Assorted fixes scattered across all ships
+
 3.0: Asorted fixes across all ships. Complete overhaul of the stat system. Clean up of the code.
 
 2.9: Fixed Stealth bomber Powergrid issues. Fixed Acillary Shield bosters. Made ship images feed from Eve-online.

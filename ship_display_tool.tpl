@@ -1,5 +1,4 @@
-<link rel='stylesheet' href='{$simpleurlheader}/mods/ship_tool_kb/style/style.css' type='text/css' media='all' />
-
+<link rel='stylesheet' href='{$simpleurlheader}/mods/ship_display_tool/style/style.css' type='text/css' media='all' />
 
 <div class='controllerFitter'>
 <div id='fitcontainer'>
@@ -79,7 +78,6 @@
 						</script>
 						<div id='fitting_view'></div>
 
-
 						<ul>
 							<li id='d_turret'></li>
 							<li id='d_missile'></li>
@@ -127,7 +125,7 @@
 						</ul>
 
 						<ul id="km_posting">
-							<li>API: <span>{if $extid != 0}Yes{else}No{/if}</span></li>
+							<li>API: <span>{if (bool)$extid}Yes{else}No{/if}</span></li>
 							<li>Source: <span>{if $type == "API"}API{else if $type == "IP"}Manual{else if $type == "URL"}Fetch{/if}</span></li>
 							<li>Damage: <span>{$getPilotDam}</span></li>
 							<li>Cost: <span>{$getPilotCos} isk</span></li>
@@ -143,7 +141,7 @@
 								<ul>
 									{if $modSlotsd}
 										{foreach $modSlotsd as $value}
-											<li>{$value.iconloc}</li>
+											<li><img src='{$value.iconloc}' alt="{$value.name}" title="{$value.name}" style='width:32px;height:32px;' /></li>
 										{/foreach}
 									{/if}
 								</ul>
@@ -159,7 +157,7 @@
 								<ul>
 									{if $modSlotsa}
 										{foreach $modSlotsa as $value}
-											<li>{$value.iconloc}</li>
+											<li><img src='{$value.iconloc}' alt="{$value.name}" title="{$value.name}" style='width:32px;height:32px;' /></li>
 										{/foreach}
 									{/if}
 								</ul>
@@ -380,7 +378,7 @@
 	</div>
 
 	<div id='infoIcon'>
-		<a href='#' onclick='{$displayOutput}'><img src='{$simpleurlheader}/mods/ship_tool_kb/images/flashImage/icon.png' alt='Info' title='Info' /></a>
+		<a href='#' onclick='{$displayOutput}'><img src='{$simpleurlheader}/mods/ship_display_tool/images/flashImage/icon.png' alt='Info' title='Info' /></a>
 	</div>
 </div>
 </div>

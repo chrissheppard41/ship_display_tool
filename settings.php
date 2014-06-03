@@ -10,9 +10,9 @@ $version = "2.8";
 <script type='text/javascript'>
 $(document).ready(function(){
 	$.getJSON('http://www.elementstudio.co.uk/downloads/v.json', function(data) {
-	
+
 	alert('here');
-	
+
 	})
 .success(function() { alert('second success'); })
 .error(function() { alert('error'); })
@@ -47,10 +47,10 @@ $html .= "<br /><br />Remember to report bugs to this post: <a href='http://eve-
 
 if ($_POST) {
   $tool_back = $_POST["sel_back"];
-  
-  
+
+
   config::set('ship_display_back', $tool_back);
-  
+
   Header("Location: ?a=settings_ship_tool_kb");
 }
 
@@ -59,4 +59,3 @@ if ($_POST) {
 $page->setContent($html);
 $page->addContext($menubox->generate());
 $page->generate();
-?>
