@@ -316,4 +316,51 @@ class Statisitics
 		return $_arr;
 	}
 
+/**
+ * slots method
+ * Converts the new slot ints to the old style
+ *
+ * @param $slot (int)
+ * @return (int)
+ */
+	public static function slots($_slot, $_name, $_cat) {
+		if($_slot == 0) {
+			switch($_name) {
+				case "Drone Bay":
+					return 6;
+				break;
+				case "Medium power slot 1":
+					return 11;
+				break;
+				case "High power slot 1":
+					return 10;
+				break;
+			}
+		} else {
+			if($_name != "Cargo"
+			&& $_name != "Fleet Hangar") {
+				if($_cat == 8) {
+					return 11;
+				}
+				switch($_slot) {
+					case "11":
+						return 3;
+					break;
+					case "19":
+						return 2;
+					break;
+					case "27":
+						return 1;
+					break;
+					case "92":
+						return 5;
+					break;
+					case "125":
+						return 0;
+					break;
+				}
+			}
+		}
+		return 100;
+	}
 }

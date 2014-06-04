@@ -29,53 +29,6 @@ class Fitting
 		self::$shipStats = new Shipstats();
 	}
 
-/**
- * slots method
- * Converts the new slot ints to the old style
- *
- * @param $slot (int)
- * @return (int)
- */
-	private function slots($_slot, $_name, $_cat) {
-		if($_slot == 0) {
-			switch($_name) {
-				case "Drone Bay":
-					return 6;
-				break;
-				case "Medium power slot 1":
-					return 11;
-				break;
-				case "High power slot 1":
-					return 10;
-				break;
-			}
-		} else {
-			if($_name != "Cargo"
-			&& $_name != "Fleet Hangar") {
-				if($_cat == 8) {
-					return 11;
-				}
-				switch($_slot) {
-					case "11":
-						return 3;
-					break;
-					case "19":
-						return 2;
-					break;
-					case "27":
-						return 1;
-					break;
-					case "92":
-						return 5;
-					break;
-					case "125":
-						return 0;
-					break;
-				}
-			}
-		}
-		return 100;
-	}
 
 /**
  * buildFit method
@@ -90,9 +43,9 @@ class Fitting
 		if($_fit) {
 			usort($_fit, function($a, $b) {
 				return
-					$this->slots($a->item_->getAttribute("itt_slot"), $a->item_->getAttribute('itl_flagText'), $a->item_->getAttribute('itt_cat'))
+					Statisitics::slots($a->item_->getAttribute("itt_slot"), $a->item_->getAttribute('itl_flagText'), $a->item_->getAttribute('itt_cat'))
 					-
-					$this->slots($b->item_->getAttribute("itt_slot"), $b->item_->getAttribute('itl_flagText'), $b->item_->getAttribute('itt_cat'));
+					Statisitics::slots($b->item_->getAttribute("itt_slot"), $b->item_->getAttribute('itl_flagText'), $b->item_->getAttribute('itt_cat'));
 			});
 
 			foreach($_fit as $head => $mods) {
@@ -118,7 +71,7 @@ class Fitting
 			}
 
 			foreach($_fit as $k => $mods) {
-				$slot = $this->slots($mods->item_->getAttribute('itt_slot'), $mods->item_->getAttribute('itl_flagText'), $mods->item_->getAttribute('itt_cat'));
+				$slot = Statisitics::slots($mods->item_->getAttribute('itt_slot'), $mods->item_->getAttribute('itl_flagText'), $mods->item_->getAttribute('itt_cat'));
 
 				if($slot != 100) {
 					switch($slot) {
