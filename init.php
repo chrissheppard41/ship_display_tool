@@ -1319,7 +1319,7 @@ class FittingTools {
 		$i = 0;
 
 		$arr = Fitting::$shipStats->getDamageGun();
-		if(!empty($arr)) {
+		if($arr) {
 			foreach($arr as $i => $value) {
 				if($value['rofP']) {
 					$dex = "P";
@@ -1385,15 +1385,15 @@ class FittingTools {
 
 		foreach(Fitting::$shipStats->getDamageGun() as $i => $value) {
 
-			if(isset($value['rofP'])) {
+			if($value['rofP']) {
 				$dex = "P";
-			} else if(isset($value['rofL'])) {
+			} else if($value['rofL']) {
 				$dex = "L";
-			} else if(isset($value['rofH'])) {
+			} else if($value['rofH']) {
 				$dex = "H";
-			} else if(isset($value['rofM'])) {
+			} else if($value['rofM']) {
 				$dex = "M";
-			} else if(isset($value['rof'])){
+			} else if($value['rof']) {
 				$dex = "";
 			}
 
@@ -1679,18 +1679,18 @@ class FittingTools {
  */
 	private function totalCapUse() {
 		$total = 0;
-		if(!empty(Fitting::$shipStats->getCapGJ())) {
+		if(Fitting::$shipStats->getCapGJ()) {
 			foreach(Fitting::$shipStats->getCapGJ() as $i => $value) {
 				$total += $value['use'];
 				//echo "".$total."<br />";
 			}
 		}
-		if(!empty(Fitting::$shipStats->getTransCap())) {
+		if(Fitting::$shipStats->getTransCap()) {
 			foreach(Fitting::$shipStats->getTransCap() as $i => $value) {
 				$total += $value['use'];
 			}
 		}
-		if(!empty(Fitting::$shipStats->getDamageGun())) {
+		if(Fitting::$shipStats->getDamageGun()) {
 			foreach(Fitting::$shipStats->getDamageGun() as $i => $value) {
 				$total += $value['use'];
 			}
@@ -1708,13 +1708,13 @@ class FittingTools {
  */
 	private function totalCapInjected() {
 		$total = 0;
-		if(!empty(Fitting::$shipStats->getCapInj())) {
+		if(Fitting::$shipStats->getCapInj()) {
 			foreach(Fitting::$shipStats->getCapInj() as $i => $value) {
 				$total += $value['use'];
 			}
 		}
 		//any nos effects
-		if(!empty(Fitting::$shipStats->getCapGJ())) {
+		if(Fitting::$shipStats->getCapGJ()) {
 			foreach(Fitting::$shipStats->getCapGJ() as $i => $value) {
 				if($value['capAdd']) {
 					$total += $value['capAdd'];
@@ -1766,7 +1766,7 @@ class FittingTools {
 	private function capacitorUsage() {
 		$arr = array();
 
-		if(!empty(Fitting::$shipStats->getCapGJ())) {
+		if(Fitting::$shipStats->getCapGJ()) {
 			foreach(Fitting::$shipStats->getCapGJ() as $i => $value) {
 				$dur = self::getSkillset(strtolower($value['name']), "duration", $value['duration']);
 				$cap = self::getSkillset(strtolower($value['name']), "capNeeded", $value['capNeeded']);
@@ -2219,7 +2219,7 @@ class FittingTools {
 		$smarty->assign('getPilotAlliance', Misc::ShortenText(Fitting::$shipStats->getPilotAlliance(),20));
 		$smarty->assign('getPilotDate', Fitting::$shipStats->getPilotDate());
 		$smarty->assign('getPilotShipURL', Fitting::$shipStats->getPilotShipURL());
-		$smarty->assign('getPilotShip', Fitting::$shipStats->getPilotShip());
+		$smarty->assign('getPilotShip', Misc::ShortenText(Fitting::$shipStats->getPilotShip(), 20));
 		$smarty->assign('getPilotShipClass', Fitting::$shipStats->getPilotShipClass());
 		$smarty->assign('getPilotLocURL', Fitting::$shipStats->getPilotLocURL());
 		$smarty->assign('getPilotLoc', Fitting::$shipStats->getPilotLoc());

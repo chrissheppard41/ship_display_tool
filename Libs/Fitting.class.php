@@ -87,7 +87,7 @@ class Fitting
 	public function buildFit($_fit) {
 		$arr = array();
 
-		if(!empty($_fit)) {
+		if($_fit) {
 			usort($_fit, function($a, $b) {
 				return
 					$this->slots($a->item_->getAttribute("itt_slot"), $a->item_->getAttribute('itl_flagText'), $a->item_->getAttribute('itt_cat'))
@@ -124,7 +124,7 @@ class Fitting
 					switch($slot) {
 						//drones
 						case "6":
-							if(isset($ammoData[2][$mods->item_->getAttribute("typeID")])) {
+							if($ammoData[2][$mods->item_->getAttribute("typeID")]) {
 								$ammoData[2][$mods->item_->getAttribute("typeID")]->quantity_ += $mods->item_->getAttribute('itd_quantity');
 							} else {
 								$ammoData[2][$mods->item_->getAttribute("typeID")] = $mods;
@@ -157,7 +157,7 @@ class Fitting
 			}
 
 			//build up the ammo information based on what ammo goes in what gun
-			if(!empty($ammoData[0])) {
+			if($ammoData[0]) {
 				foreach($ammoData[0] as $am => $ammo) {
 					if($ammo->item_->getAttribute("usedlauncher") == 483 // Modulated Deep Core Miner II, Modulated Strip Miner II and Modulated Deep Core Strip Miner II
 					|| $ammo->item_->getAttribute("usedlauncher") == 53 // Laser Turrets
@@ -171,10 +171,9 @@ class Fitting
 					|| $ammo->item_->getAttribute("usedlauncher") == 524 // Citadel Torpedo Launchers
 					) {
 						$ammocharge = $ammo->item_->getAttribute("usedlauncher");
-						if ($ammo->item_->getAttribute("usedlauncher") == 511) $ammocharge = 509; // Assault Missile Lauchers uses same ammo as Standard Missile Lauchers
 
 						foreach(self::$modSlots[1] as $m => $module) {
-							if($ammocharge == $module["groupID"]) {
+							if($ammocharge == $module["groupID"] || ($module["groupID"] == 511 && $ammocharge == 509)) {// Assault Missile Lauchers uses same ammo as Standard Missile Lauchers
 								self::$modSlots[10][$m] = $this->moduleInformation(10, $ammo);
 								self::buildSettings(10, $ammo, $modData);
 							}
@@ -185,7 +184,7 @@ class Fitting
 			}
 
 			//build up the charge information based on what charge goes in what module
-			if(!empty($ammoData[1])) {
+			if($ammoData[1]) {
 				foreach($ammoData[1] as $ch => $charge) {
 					if($charge->item_->getAttribute("usedlauncher") == 76 // Capacitor Boosters
 					|| $charge->item_->getAttribute("usedlauncher") == 208 // Remote Sensor Dampeners
@@ -206,28 +205,28 @@ class Fitting
 				}
 			}
 			//build up the drone information based on what drone is set int he dron bay
-			if(!empty($ammoData[2])) {
+			if($ammoData[2]) {
 				foreach($ammoData[2] as $d => $drone) {
 					self::$modSlots[6][self::$shipStats->moduleCount] = $this->moduleInformation(6, $drone, $drone->quantity_);
 					self::buildSettings(6, $drone, $modData);
 				}
 			}
-			if(!empty(Fitting::$modSlots[1])) {
+			if(Fitting::$modSlots[1]) {
 				usort(Fitting::$modSlots[1], function ($a, $b){
 					return strcmp($a['name'], $b['name']);
 				});
 			}
-			if(!empty(Fitting::$modSlots[2])) {
+			if(Fitting::$modSlots[2]) {
 				usort(Fitting::$modSlots[2], function ($a, $b){
 					return strcmp($a['name'], $b['name']);
 				});
 			}
-			if(!empty(Fitting::$modSlots[3])) {
+			if(Fitting::$modSlots[3]) {
 				usort(Fitting::$modSlots[3], function ($a, $b){
 					return strcmp($a['name'], $b['name']);
 				});
 			}
-			if(!empty(Fitting::$modSlots[5])) {
+			if(Fitting::$modSlots[5]) {
 				usort(Fitting::$modSlots[5], function ($a, $b){
 					return strcmp($a['name'], $b['name']);
 				});
@@ -251,7 +250,7 @@ class Fitting
 				self::$modSlots[5][] = array('id'=> 0,'name'=> 'Empty Rig Slot', 'iconloc'=> ((Misc::$simpleurl)?Misc::curPageURL():"").'mods/ship_display_tool/images/equipment/icon00_rig.png', 'metaLevel' => 0, 'techLevel' => 0, 'capacity' => 0, 'volume' => 0, 'mass' => 0);
 			}
 
-			if(!empty(self::$modSlots[0])) {
+			if(self::$modSlots[0]) {
 				foreach(self::$modSlots[0] as $i => $value) {
 					self::subsystemaddon($value['name']);
 				}
@@ -362,7 +361,7 @@ class Fitting
 			$bonus_text = strtolower(strip_tags($row["bonusText"]));
 			$effect = ShipEffect::findEffectName($bonus_text, $row["bonus"]);
 
-			if($effect == null || empty($effect)) {
+			if($effect == null) {
 				continue;
 			}
 
