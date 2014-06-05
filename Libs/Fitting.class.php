@@ -43,9 +43,9 @@ class Fitting
 		if($_fit) {
 			usort($_fit, function($a, $b) {
 				return
-					Statisitics::slots($a->item_->getAttribute("itt_slot"), $a->item_->getAttribute('itl_flagText'), $a->item_->getAttribute('itt_cat'))
+					Statistics::slots($a->item_->getAttribute("itt_slot"), $a->item_->getAttribute('itl_flagText'), $a->item_->getAttribute('itt_cat'))
 					-
-					Statisitics::slots($b->item_->getAttribute("itt_slot"), $b->item_->getAttribute('itl_flagText'), $b->item_->getAttribute('itt_cat'));
+					Statistics::slots($b->item_->getAttribute("itt_slot"), $b->item_->getAttribute('itl_flagText'), $b->item_->getAttribute('itt_cat'));
 			});
 
 			foreach($_fit as $head => $mods) {
@@ -71,7 +71,7 @@ class Fitting
 			}
 
 			foreach($_fit as $k => $mods) {
-				$slot = Statisitics::slots($mods->item_->getAttribute('itt_slot'), $mods->item_->getAttribute('itl_flagText'), $mods->item_->getAttribute('itt_cat'));
+				$slot = Statistics::slots($mods->item_->getAttribute('itt_slot'), $mods->item_->getAttribute('itl_flagText'), $mods->item_->getAttribute('itt_cat'));
 
 				if($slot != 100) {
 					switch($slot) {
@@ -953,7 +953,7 @@ class Fitting
 					}
 
 					if($bonus != 0) {
-						self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "em", $emBonus, $type, $order));
+						self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "em", $emBonus, $type, $order));
 					}
 				} else {
 					if($groupID == "77") {
@@ -968,13 +968,13 @@ class Fitting
 					}
 
 					if($bonus != 0) {
-						self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "em", ($emBonus*$skillBonus), $type, $order));
+						self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "em", ($emBonus*$skillBonus), $type, $order));
 					}
 				}
 
 			} else {
 				if($bonus != 0) {
-					self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "em", ($bonus*$skillBonus), $type, 3));
+					self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "em", ($bonus*$skillBonus), $type, 3));
 				}
 			}
 		} else if($effect == "passivearmoremdamageresonance" && $moduleLevel == 7) {
@@ -982,56 +982,56 @@ class Fitting
 				$bonus = (1-$bonus)*100;
 			}
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "em", $bonus, $type, 4));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "em", $bonus, $type, 4));
 			}
 		} else if($effect == "passivearmorthermaldamageresonance" && $moduleLevel == 7) {
 			if($bonus < 1 && $bonus != 0) {
 				$bonus = (1-$bonus)*100;
 			}
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "th", $bonus, $type, 4));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "th", $bonus, $type, 4));
 			}
 		} else if($effect == "passivearmorkineticdamageresonance" && $moduleLevel == 7) {
 			if($bonus < 1 && $bonus != 0) {
 				$bonus = (1-$bonus)*100;
 			}
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "ki", $bonus, $type, 4));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "ki", $bonus, $type, 4));
 			}
 		} else if($effect == "passivearmorexplosivedamageresonance" && $moduleLevel == 7) {
 			if($bonus < 1 && $bonus != 0) {
 				$bonus = (1-$bonus)*100;
 			}
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "ex", $bonus, $type, 4));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "ex", $bonus, $type, 4));
 			}
 		} else if($effect == "passiveshieldemdamageresonance" && $moduleLevel == 7) {
 			if($bonus < 1 && $bonus != 0) {
 				$bonus = (1-$bonus)*100;
 			}
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "em", $bonus, $type, 4));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "em", $bonus, $type, 4));
 			}
 		} else if($effect == "passiveshieldthermaldamageresonance" && $moduleLevel == 7) {
 			if($bonus < 1 && $bonus != 0) {
 				$bonus = (1-$bonus)*100;
 			}
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "th", $bonus, $type, 4));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "th", $bonus, $type, 4));
 			}
 		} else if($effect == "passiveshieldkineticdamageresonance" && $moduleLevel == 7) {
 			if($bonus < 1 && $bonus != 0) {
 				$bonus = (1-$bonus)*100;
 			}
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "ki", $bonus, $type, 4));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "ki", $bonus, $type, 4));
 			}
 		} else if($effect == "passiveshieldexplosivedamageresonance" && $moduleLevel == 7) {
 			if($bonus < 1 && $bonus != 0) {
 				$bonus = (1-$bonus)*100;
 			}
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "ex", $bonus, $type, 4));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "ex", $bonus, $type, 4));
 			}
 		} else if($effect == "shieldthermaldamageresonance" || $effect == "thermaldamageresistancebonus") {
 			if($bonus < 1 && $bonus != 0) {
@@ -1068,7 +1068,7 @@ class Fitting
 					}
 
 					if($bonus != 0) {
-						self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "th", $thBonus, $type, $order));
+						self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "th", $thBonus, $type, $order));
 					}
 				} else {
 					if($groupID == "77"
@@ -1081,13 +1081,13 @@ class Fitting
 					}
 
 					if($bonus != 0) {
-						self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "th", ($thBonus*$skillBonus), $type, $order));
+						self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "th", ($thBonus*$skillBonus), $type, $order));
 					}
 				}
 
 			} else {
 				if($bonus != 0) {
-					self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "th", ($bonus*$skillBonus), $type, 3));
+					self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "th", ($bonus*$skillBonus), $type, 3));
 				}
 			}
 		} else if($effect == "shieldkineticdamageresonance" || $effect == "kineticdamageresistancebonus") {
@@ -1125,7 +1125,7 @@ class Fitting
 					}
 
 					if($bonus != 0) {
-						self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "ki", $kiBonus, $type, $order));
+						self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "ki", $kiBonus, $type, $order));
 					}
 				} else {
 					if($groupID == "77"
@@ -1138,13 +1138,13 @@ class Fitting
 					}
 
 					if($bonus != 0) {
-						self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "ki", ($kiBonus*$skillBonus), $type, $order));
+						self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "ki", ($kiBonus*$skillBonus), $type, $order));
 					}
 				}
 
 			} else {
 				if($bonus != 0) {
-					self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "ki", ($bonus*$skillBonus), $type, 3));
+					self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "ki", ($bonus*$skillBonus), $type, 3));
 				}
 			}
 		} else if($effect == "shieldexplosivedamageresonance" || $effect == "explosivedamageresistancebonus") {
@@ -1183,7 +1183,7 @@ class Fitting
 					}
 
 					if($bonus != 0) {
-						self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "ex", $exBonus, $type, $order));
+						self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "ex", $exBonus, $type, $order));
 					}
 				} else {
 					if($groupID == "77"
@@ -1196,12 +1196,12 @@ class Fitting
 					}
 
 					if($bonus != 0) {
-						self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "ex", ($exBonus*$skillBonus), $type, $order));
+						self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "ex", ($exBonus*$skillBonus), $type, $order));
 					}
 				}
 			} else {
 				if($bonus != 0) {
-					self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "ex", ($bonus*$skillBonus), $type, 3));
+					self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", $modName, "ex", ($bonus*$skillBonus), $type, 3));
 				}
 			}
 		} else if($effect == "shieldrechargerate") {
@@ -1220,7 +1220,7 @@ class Fitting
 			}
 
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "em", ($bonus*$skillBonus), $type, $order));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "em", ($bonus*$skillBonus), $type, $order));
 			}
 		} else if($effect == "armorthermaldamageresonance") {
 			if($bonus < 1) {
@@ -1232,7 +1232,7 @@ class Fitting
 			}
 
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "th", ($bonus*$skillBonus), $type, $order));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "th", ($bonus*$skillBonus), $type, $order));
 			}
 		} else if($effect == "armorkineticdamageresonance") {
 			if($bonus < 1) {
@@ -1244,7 +1244,7 @@ class Fitting
 			}
 
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "ki", ($bonus*$skillBonus), $type, $order));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "ki", ($bonus*$skillBonus), $type, $order));
 			}
 		} else if($effect == "armorexplosivedamageresonance") {
 			if($bonus < 1) {
@@ -1256,7 +1256,7 @@ class Fitting
 			}
 
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "ex", ($bonus*$skillBonus), $type, $order));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", $modName, "ex", ($bonus*$skillBonus), $type, $order));
 			}
 		} else if($effect == "hullemdamageresonance") {
 			if($bonus < 1) {
@@ -1264,7 +1264,7 @@ class Fitting
 			}
 			//self::$shipStats->setHullEM(Calculations::getLevel5SkillsPlus(self::$shipStats->getHullEM(), ($bonus*$skillBonus), $type, 1));
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "hull", $modName, "em", ($bonus*$skillBonus), $type, 3));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "hull", $modName, "em", ($bonus*$skillBonus), $type, 3));
 			}
 		} else if($effect == "hullthermaldamageresonance") {
 			if($bonus < 1) {
@@ -1272,7 +1272,7 @@ class Fitting
 			}
 			//self::$shipStats->setHullTh(Calculations::getLevel5SkillsPlus(self::$shipStats->getHullTh(), ($bonus*$skillBonus), $type, 1));
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "hull", $modName, "th", ($bonus*$skillBonus), $type, 3));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "hull", $modName, "th", ($bonus*$skillBonus), $type, 3));
 			}
 		} else if($effect == "hullkineticdamageresonance") {
 			if($bonus < 1) {
@@ -1280,29 +1280,29 @@ class Fitting
 			}
 			//self::$shipStats->setHullKi(Calculations::getLevel5SkillsPlus(self::$shipStats->getHullKi(), ($bonus*$skillBonus), $type, 1));
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "hull", $modName, "ki", ($bonus*$skillBonus), $type, 3));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "hull", $modName, "ki", ($bonus*$skillBonus), $type, 3));
 			}
 		} else if($effect == "hullexplosivedamageresonance") {
 			if($bonus < 1) {
 				$bonus = (1-$bonus)*100;
 			}
 			if($bonus != 0) {
-				self::$shipStats->setShipResists(Statisitics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "hull", $modName, "ex", ($bonus*$skillBonus), $type, 3));
+				self::$shipStats->setShipResists(Statistics::modShipResists(self::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "hull", $modName, "ex", ($bonus*$skillBonus), $type, 3));
 			}
 		} else if($effect == "powerengineeringoutputbonus") {
-			self::$shipStats->loadPowerAdd = Statisitics::modShipEnergy(self::$shipStats->loadPowerAdd, self::$shipStats->moduleCount, "power", $modName, $bonus, "+", "%");
+			self::$shipStats->loadPowerAdd = Statistics::modShipEnergy(self::$shipStats->loadPowerAdd, self::$shipStats->moduleCount, "power", $modName, $bonus, "+", "%");
 		} else if($effect == "poweroutputmultiplier") {
-			self::$shipStats->loadPowerAdd = Statisitics::modShipEnergy(self::$shipStats->loadPowerAdd, self::$shipStats->moduleCount, "power", $modName, (($bonus-1)*100), "+", "%");
+			self::$shipStats->loadPowerAdd = Statistics::modShipEnergy(self::$shipStats->loadPowerAdd, self::$shipStats->moduleCount, "power", $modName, (($bonus-1)*100), "+", "%");
 		} else if($effect == "powerincrease") {
-			self::$shipStats->loadPowerAdd = Statisitics::modShipEnergy(self::$shipStats->loadPowerAdd, self::$shipStats->moduleCount, "power", $modName, $bonus, "+", "+");
+			self::$shipStats->loadPowerAdd = Statistics::modShipEnergy(self::$shipStats->loadPowerAdd, self::$shipStats->moduleCount, "power", $modName, $bonus, "+", "+");
 		} else if($effect == "cpumultiplier") {
-			self::$shipStats->loadCPUAdd = Statisitics::modShipEnergy(self::$shipStats->loadCPUAdd, self::$shipStats->moduleCount, "cpu", $modName, (($bonus-1)*100), "+", "%");
+			self::$shipStats->loadCPUAdd = Statistics::modShipEnergy(self::$shipStats->loadCPUAdd, self::$shipStats->moduleCount, "cpu", $modName, (($bonus-1)*100), "+", "%");
 		} else if($effect == "cpuoutputbonus2") {
-			self::$shipStats->loadCPUAdd = Statisitics::modShipEnergy(self::$shipStats->loadCPUAdd, self::$shipStats->moduleCount, "cpu", $modName, $bonus, "+", "%");
+			self::$shipStats->loadCPUAdd = Statistics::modShipEnergy(self::$shipStats->loadCPUAdd, self::$shipStats->moduleCount, "cpu", $modName, $bonus, "+", "%");
 		} else if($effect == "cpuoutput") {
 			self::$shipStats->setCpuAmount($bonus+self::$shipStats->getCpuAmount());
 		} else if($effect == "drawback" && $groupID == "778") {
-			self::$shipStats->loadCPUAdd = Statisitics::modShipEnergy(self::$shipStats->loadCPUAdd, self::$shipStats->moduleCount, "cpu", $modName, ($bonus/2), "-", "%", 1);
+			self::$shipStats->loadCPUAdd = Statistics::modShipEnergy(self::$shipStats->loadCPUAdd, self::$shipStats->moduleCount, "cpu", $modName, ($bonus/2), "-", "%", 1);
 		} else if($effect == "poweroutput") {
 			if($bonus != 0) {
 				self::$shipStats->setPrgAmount($bonus);
@@ -1426,11 +1426,11 @@ class Fitting
 			}
 		} else if($effect == "maxtargetrangemultiplier") {
 			if($groupID == "786") {
-				self::$shipStats->setSensorBooster(Statisitics::modScanning(self::$shipStats->getSensorBooster(), self::$shipStats->moduleCount, 'range', (($bonus-1)*100), 'negra', self::$shipStats->range, "+", $slotOrder));
+				self::$shipStats->setSensorBooster(Statistics::modScanning(self::$shipStats->getSensorBooster(), self::$shipStats->moduleCount, 'range', (($bonus-1)*100), 'negra', self::$shipStats->range, "+", $slotOrder));
 			}
 		} else if($effect == "scanresolutionbonus") {
 			if($groupID == "212" || $groupID == "210") {
-				self::$shipStats->setSensorBooster(Statisitics::modScanning(self::$shipStats->getSensorBooster(), self::$shipStats->moduleCount, 'scan', $bonus, 'negsc', self::$shipStats->scan, "+", $slotOrder));
+				self::$shipStats->setSensorBooster(Statistics::modScanning(self::$shipStats->getSensorBooster(), self::$shipStats->moduleCount, 'scan', $bonus, 'negsc', self::$shipStats->scan, "+", $slotOrder));
 				self::$shipStats->sensorbooster[] = self::$shipStats->moduleCount;
 			} else if($groupID == "208") {
 			} else {
@@ -1439,11 +1439,11 @@ class Fitting
 			}
 		} else if($effect == "maxtargetrangebonusbonus") {
 			if($groupID == "910") {
-				Statisitics::modOrdering(self::$shipStats->getSensorBooster(), self::$shipStats->sensorbooster, false, true);
+				Statistics::modOrdering(self::$shipStats->getSensorBooster(), self::$shipStats->sensorbooster, false, true);
 			}
 		} else if($effect == "scanresolutionbonusbonus") {
 			if($groupID == "910") {
-				Statisitics::modOrdering(self::$shipStats->getSensorBooster(), self::$shipStats->sensorbooster, true, false);
+				Statistics::modOrdering(self::$shipStats->getSensorBooster(), self::$shipStats->sensorbooster, true, false);
 			}
 		} else if($effect == "maxlockedtargetsbonus") {
 			self::$shipStats->setTarget(Calculations::statOntoShip(self::$shipStats->getTarget(), $bonus, "+", $mode, 0));
@@ -1659,19 +1659,19 @@ class Fitting
 
 		} else if($effect == "duration") {
 			if($groupID == "76") {
-				self::$shipStats->setCapInj(Statisitics::modDuration(self::$shipStats->getCapInj(), self::$shipStats->moduleCount, 'capacity', $capacity, ($bonus/1000)));
+				self::$shipStats->setCapInj(Statistics::modDuration(self::$shipStats->getCapInj(), self::$shipStats->moduleCount, 'capacity', $capacity, ($bonus/1000)));
 				self::$shipStats->boosterPos[] = self::$shipStats->moduleCount;
 			} else if($groupID == "41" && strstr($modName, "remote shield")) {
-				self::$shipStats->setTransCap(Statisitics::modDuration(self::$shipStats->getTransCap(), self::$shipStats->moduleCount, 'type', "shieldTrans", ($bonus/1000)));
+				self::$shipStats->setTransCap(Statistics::modDuration(self::$shipStats->getTransCap(), self::$shipStats->moduleCount, 'type', "shieldTrans", ($bonus/1000)));
 			} else if($groupID == "325" && strstr($modName, "remote armor")) {
-				self::$shipStats->setTransCap(Statisitics::modDuration(self::$shipStats->getTransCap(), self::$shipStats->moduleCount, 'type', "armorTrans", ($bonus/1000)));
+				self::$shipStats->setTransCap(Statistics::modDuration(self::$shipStats->getTransCap(), self::$shipStats->moduleCount, 'type', "armorTrans", ($bonus/1000)));
 			} else if($groupID == "67" && strstr($modName, "remote capacitor")) {
-				self::$shipStats->setTransCap(Statisitics::modDuration(self::$shipStats->getTransCap(), self::$shipStats->moduleCount, 'type', "energyTrans", ($bonus/1000)));
+				self::$shipStats->setTransCap(Statistics::modDuration(self::$shipStats->getTransCap(), self::$shipStats->moduleCount, 'type', "energyTrans", ($bonus/1000)));
 			} else if($groupID == "1156") {
-				self::$shipStats->setTankBoost(Statisitics::modDurationBoost(self::$shipStats->getTankBoost(), self::$shipStats->moduleCount, ($bonus/1000)));
+				self::$shipStats->setTankBoost(Statistics::modDurationBoost(self::$shipStats->getTankBoost(), self::$shipStats->moduleCount, ($bonus/1000)));
 			} else if($groupID == "40" || $groupID == "1199" || $groupID == "62" || $groupID == "63") {
-				self::$shipStats->setTankBoost(Statisitics::modDurationBoost(self::$shipStats->getTankBoost(), self::$shipStats->moduleCount, ($bonus/1000)));
-				self::$shipStats->setCapGJ(Statisitics::modDuration(self::$shipStats->getCapGJ(), self::$shipStats->moduleCount, 'capacity', $capacity, ($bonus/1000)));
+				self::$shipStats->setTankBoost(Statistics::modDurationBoost(self::$shipStats->getTankBoost(), self::$shipStats->moduleCount, ($bonus/1000)));
+				self::$shipStats->setCapGJ(Statistics::modDuration(self::$shipStats->getCapGJ(), self::$shipStats->moduleCount, 'capacity', $capacity, ($bonus/1000)));
 			} else if($groupID == "72") {
 				$arr = self::$shipStats->getDamageGun();
 				$arr[self::$shipStats->moduleCount]['name'] = $modName;
@@ -1681,9 +1681,9 @@ class Fitting
 				$arr[self::$shipStats->moduleCount]['damage'] = 1;
 				self::$shipStats->setDamageGun($arr);
 
-				self::$shipStats->setCapGJ(Statisitics::modDuration(self::$shipStats->getCapGJ(), self::$shipStats->moduleCount, 'capacity', 1, ($bonus/1000)));
+				self::$shipStats->setCapGJ(Statistics::modDuration(self::$shipStats->getCapGJ(), self::$shipStats->moduleCount, 'capacity', 1, ($bonus/1000)));
 			} else {
-				self::$shipStats->setCapGJ(Statisitics::modDuration(self::$shipStats->getCapGJ(), self::$shipStats->moduleCount, 'capacity', $capacity, ($bonus/1000)));
+				self::$shipStats->setCapGJ(Statistics::modDuration(self::$shipStats->getCapGJ(), self::$shipStats->moduleCount, 'capacity', $capacity, ($bonus/1000)));
 			}
 
 		} else if($effect == "chargegroup2") {
@@ -1713,15 +1713,15 @@ class Fitting
 				|| strstr($modName, "remote")
 			|| strstr($modName, "regenerative projector")
 				|| strstr($modName, "transporter")) {
-				self::$shipStats->setTransCap(Statisitics::modCapneed(self::$shipStats->getTransCap(), self::$shipStats->moduleCount, null, null, $bonus));
+				self::$shipStats->setTransCap(Statistics::modCapneed(self::$shipStats->getTransCap(), self::$shipStats->moduleCount, null, null, $bonus));
 			}else if($groupID == "74" || $groupID == "53") {
 				$arr = self::$shipStats->getDamageGun();
 				$arr[self::$shipStats->moduleCount]['capNeed'] = $bonus;
 				self::$shipStats->setDamageGun($arr);
 			} else if($groupID == "72") {
-				self::$shipStats->setCapGJ(Statisitics::modCapneed(self::$shipStats->getCapGJ(), self::$shipStats->moduleCount, $modName, 1, $bonus));
+				self::$shipStats->setCapGJ(Statistics::modCapneed(self::$shipStats->getCapGJ(), self::$shipStats->moduleCount, $modName, 1, $bonus));
 			} else {
-				self::$shipStats->setCapGJ(Statisitics::modCapneed(self::$shipStats->getCapGJ(), self::$shipStats->moduleCount, $modName, null, $bonus));
+				self::$shipStats->setCapGJ(Statistics::modCapneed(self::$shipStats->getCapGJ(), self::$shipStats->moduleCount, $modName, null, $bonus));
 			}
 
 		} else if($effect == "modulereactivationdelay") {
@@ -1793,76 +1793,76 @@ class Fitting
 
 		} else if($effect == "speed") {
 			if($groupID == "55" && (strpos($modName, "125") > -1 || strpos($modName, "150") > -1 || strpos($modName, "200") > -1 || strpos($modName, "250") > -1 || strpos($modName, "280") > -1)) {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofP", ($bonus/1000), "Small", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofP", ($bonus/1000), "Small", $capacity, $techLevel));
 			} else if($groupID == "55" && (strpos($modName, "Dual 180") > -1 || strpos($modName, "220") > -1 || strpos($modName, "425") > -1 || strpos($modName, "650") > -1 || strpos($modName, "720") > -1)) {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofP", ($bonus/1000), "Medium", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofP", ($bonus/1000), "Medium", $capacity, $techLevel));
 			} else if($groupID == "55" && (strpos($modName, "Dual 425") > -1 || strpos($modName, "Dual 650") > -1 || strpos($modName, "800") > -1 || strpos($modName, "1200") > -1 || strpos($modName, "1400") > -1)) {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofP", ($bonus/1000), "Large", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofP", ($bonus/1000), "Large", $capacity, $techLevel));
 			} else if($groupID == "55" && (strpos($modName, "2500") > -1 || strpos($modName, "3500") > -1)) {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofP", ($bonus/1000), "X-Large", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofP", ($bonus/1000), "X-Large", $capacity, $techLevel));
 			}
 
 			if($groupID == "74" && $mass == "500") {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofH", ($bonus/1000), "Small", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofH", ($bonus/1000), "Small", $capacity, $techLevel));
 			} else if($groupID == "74" && $mass == "1000") {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofH", ($bonus/1000), "Medium", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofH", ($bonus/1000), "Medium", $capacity, $techLevel));
 			} else if($groupID == "74" && $mass == "2000") {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofH", ($bonus/1000), "Large", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofH", ($bonus/1000), "Large", $capacity, $techLevel));
 			} else if($groupID == "74" && $mass == "40000") {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofH", ($bonus/1000), "X-Large", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofH", ($bonus/1000), "X-Large", $capacity, $techLevel));
 			}
 
 
 			if($groupID == "53" && $mass == "500") {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofL", ($bonus/1000), "Small", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofL", ($bonus/1000), "Small", $capacity, $techLevel));
 			} else if($groupID == "53" && $mass == "1000") {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofL", ($bonus/1000), "Medium", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofL", ($bonus/1000), "Medium", $capacity, $techLevel));
 			} else if($groupID == "53" && $mass == "2000") {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofL", ($bonus/1000), "Large", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofL", ($bonus/1000), "Large", $capacity, $techLevel));
 			} else if($groupID == "53" && $mass == "40000") {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofL", ($bonus/1000), "X-Large", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofL", ($bonus/1000), "X-Large", $capacity, $techLevel));
 			}
 
 			if($groupID == "507" || $groupID == "511" || $groupID == "509") {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofM", ($bonus/1000), "Small", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofM", ($bonus/1000), "Small", $capacity, $techLevel));
 			} else if($groupID == "510"  || $groupID == "771") {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofM", ($bonus/1000), "Medium", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofM", ($bonus/1000), "Medium", $capacity, $techLevel));
 			} else if($groupID == "506" || $groupID == "508") {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofM", ($bonus/1000), "Large", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofM", ($bonus/1000), "Large", $capacity, $techLevel));
 			} else if($groupID == "524") {
-				self::$shipStats->setDamageGun(Statisitics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofM", ($bonus/1000), "X-Large", $capacity, $techLevel));
+				self::$shipStats->setDamageGun(Statistics::modSpeed(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, self::$shipStats->gunPos, self::$shipStats->gunPosCap, $modName, "rofM", ($bonus/1000), "X-Large", $capacity, $techLevel));
 			}
 
 		} else if($effect == "damagemultiplier") {
 			if($groupID == "55") {
-				self::$shipStats->setDamageGun(Statisitics::modDamage(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, 'damageP', $bonus));
+				self::$shipStats->setDamageGun(Statistics::modDamage(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, 'damageP', $bonus));
 			} else if($groupID == "74") {
-				self::$shipStats->setDamageGun(Statisitics::modDamage(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, 'damageH', $bonus));
+				self::$shipStats->setDamageGun(Statistics::modDamage(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, 'damageH', $bonus));
 			} else if($groupID == "53") {
-				self::$shipStats->setDamageGun(Statisitics::modDamage(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, 'damageL', $bonus));
+				self::$shipStats->setDamageGun(Statistics::modDamage(self::$shipStats->getDamageGun(), self::$shipStats->moduleCount, 'damageL', $bonus));
 			} else if($groupID == "776") {
-				self::$shipStats->setDamageModules(Statisitics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->hybridDam, 'damageH', (($bonus-1)*100)));
+				self::$shipStats->setDamageModules(Statistics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->hybridDam, 'damageH', (($bonus-1)*100)));
 			} else if($groupID == "775") {
-				self::$shipStats->setDamageModules(Statisitics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->lazerDam, 'damageL', (($bonus-1)*100)));
+				self::$shipStats->setDamageModules(Statistics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->lazerDam, 'damageL', (($bonus-1)*100)));
 			} else if($groupID == "777") {
-				self::$shipStats->setDamageModules(Statisitics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->projectileDam, 'damageP', (($bonus-1)*100)));
+				self::$shipStats->setDamageModules(Statistics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->projectileDam, 'damageP', (($bonus-1)*100)));
 			} else if($groupID == "779") {
-				self::$shipStats->setDamageModules(Statisitics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->missileDam, 'damageM', (($bonus-1)*100)));
+				self::$shipStats->setDamageModules(Statistics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->missileDam, 'damageM', (($bonus-1)*100)));
 			} else if($groupID == "205") {
 				if($bonus < 1) {
 					$bonus = (1-$bonus)*100;
 				}
-				self::$shipStats->setDamageModules(Statisitics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->lazerDam, 'damageL', (($bonus-1)*100), self::$shipStats->lazerRof));
+				self::$shipStats->setDamageModules(Statistics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->lazerDam, 'damageL', (($bonus-1)*100), self::$shipStats->lazerRof));
 			} else if($groupID == "302") {
 				if($bonus < 1) {
 					$bonus = (1-$bonus)*100;
 				}
-				self::$shipStats->setDamageModules(Statisitics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->hybridDam, 'damageH', (($bonus-1)*100), self::$shipStats->hybridRof));
+				self::$shipStats->setDamageModules(Statistics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->hybridDam, 'damageH', (($bonus-1)*100), self::$shipStats->hybridRof));
 			} else if($groupID == "59") {
 				if($bonus < 1) {
 					$bonus = (1-$bonus)*100;
 				}
-				self::$shipStats->setDamageModules(Statisitics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->projectileDam, 'damageP', (($bonus-1)*100), self::$shipStats->projectileRof));
+				self::$shipStats->setDamageModules(Statistics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->projectileDam, 'damageP', (($bonus-1)*100), self::$shipStats->projectileRof));
 			}
 		} else if($effect == "emdamage"
 		|| $effect == "explosivedamage"
@@ -1899,13 +1899,13 @@ class Fitting
 			}
 
 			if($groupID == "776") {
-				self::$shipStats->setDamageModules(Statisitics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->hybridRof, 'rofH', $bonus));
+				self::$shipStats->setDamageModules(Statistics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->hybridRof, 'rofH', $bonus));
 			} else if($groupID == "775") {
-				self::$shipStats->setDamageModules(Statisitics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->lazerRof, 'rofL', $bonus));
+				self::$shipStats->setDamageModules(Statistics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->lazerRof, 'rofL', $bonus));
 			} else if($groupID == "777") {
-				self::$shipStats->setDamageModules(Statisitics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->projectileRof, 'rofP', $bonus));
+				self::$shipStats->setDamageModules(Statistics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->projectileRof, 'rofP', $bonus));
 			} else if($groupID == "779") {
-				self::$shipStats->setDamageModules(Statisitics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->missileRof, 'rofM', $bonus));
+				self::$shipStats->setDamageModules(Statistics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->missileRof, 'rofM', $bonus));
 			} else {
 
 				if(strstr($modName, "ballistic")
@@ -1930,7 +1930,7 @@ class Fitting
 					$dex = "L";
 				}
 
-				self::$shipStats->setDamageModules(Statisitics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, $p=0, 'rof'.$dex, $bonus));
+				self::$shipStats->setDamageModules(Statistics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, $p=0, 'rof'.$dex, $bonus));
 			}
 
 		} else if($effect == "missiledamagemultiplierbonus") {
@@ -1938,7 +1938,7 @@ class Fitting
 				$bonus = (1-$bonus)*100;
 			}
 
-			self::$shipStats->setDamageModules(Statisitics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->missileDam, 'damageM', (($bonus-1)*100), self::$shipStats->missileRof));
+			self::$shipStats->setDamageModules(Statistics::modDamageMods(self::$shipStats->getDamageModules(), self::$shipStats->moduleCount, $modName, self::$shipStats->missileDam, 'damageM', (($bonus-1)*100), self::$shipStats->missileRof));
 		} else if($effect == "damagemultiplierbonus") {
 			if($bonus < 1) {
 				$bonus = (1-$bonus)*100;
@@ -1948,13 +1948,13 @@ class Fitting
 			if(strstr($modName,"sentry")) {
 				$type = 3;
 			}
-			self::$shipStats->setDroneDamageMod(Statisitics::modDroneDamageMods(self::$shipStats->getDroneDamageMod(), self::$shipStats->moduleCount, $modName, self::$shipStats->droneDam, 0, $bonus, $type));
+			self::$shipStats->setDroneDamageMod(Statistics::modDroneDamageMods(self::$shipStats->getDroneDamageMod(), self::$shipStats->moduleCount, $modName, self::$shipStats->droneDam, 0, $bonus, $type));
 		} else if($effect == "dronedamagebonus") {
 			if($bonus < 1) {
 				$bonus = (1-$bonus)*100;
 			}
 
-			self::$shipStats->setDroneDamageMod(Statisitics::modDroneDamageMods(self::$shipStats->getDroneDamageMod(), self::$shipStats->moduleCount, $modName, self::$shipStats->droneDam, 0, $bonus, 0));
+			self::$shipStats->setDroneDamageMod(Statistics::modDroneDamageMods(self::$shipStats->getDroneDamageMod(), self::$shipStats->moduleCount, $modName, self::$shipStats->droneDam, 0, $bonus, 0));
 		} else if($effect == "shieldrechargeratemultiplier" || $effect == "rechargeratebonus") {
 			if($bonus < 1) {
 				$bonus = (1-$bonus)*100;
@@ -1976,7 +1976,7 @@ class Fitting
 
 			if($groupID == "40"
 			|| $groupID == "1156") {
-				self::$shipStats->setTankBoost(Statisitics::modTankBoost(self::$shipStats->getTankBoost(), self::$shipStats->moduleCount, $bonus, "shield"));
+				self::$shipStats->setTankBoost(Statistics::modTankBoost(self::$shipStats->getTankBoost(), self::$shipStats->moduleCount, $bonus, "shield"));
 			}
 		} else if(strtolower($effect) == "armordamageamount") {
 			if($bonus < 1) {
@@ -1985,7 +1985,7 @@ class Fitting
 
 			if($groupID == "62"
 			|| $groupID == "1199") {
-				self::$shipStats->setTankBoost(Statisitics::modTankBoost(self::$shipStats->getTankBoost(), self::$shipStats->moduleCount, $bonus, "armor"));
+				self::$shipStats->setTankBoost(Statistics::modTankBoost(self::$shipStats->getTankBoost(), self::$shipStats->moduleCount, $bonus, "armor"));
 			}
 
 		} else if(strtolower($effect) == "structuredamageamount") {
@@ -1994,7 +1994,7 @@ class Fitting
 			}
 
 			if($groupID == "63") {
-				self::$shipStats->setTankBoost(Statisitics::modTankBoost(self::$shipStats->getTankBoost(), self::$shipStats->moduleCount, $bonus, "hull"));
+				self::$shipStats->setTankBoost(Statistics::modTankBoost(self::$shipStats->getTankBoost(), self::$shipStats->moduleCount, $bonus, "hull"));
 			}
 
 		} else if(strtolower($effect) == "shieldboostmultiplier") {
@@ -2003,7 +2003,7 @@ class Fitting
 			}
 
 			if($groupID == "338") {
-				self::$shipStats->setTankAmpShield(Statisitics::modTankBoost(self::$shipStats->getTankAmpShield(), self::$shipStats->moduleCount, $bonus, "+", self::$shipStats->shieldAmp));
+				self::$shipStats->setTankAmpShield(Statistics::modTankBoost(self::$shipStats->getTankAmpShield(), self::$shipStats->moduleCount, $bonus, "+", self::$shipStats->shieldAmp));
 			}
 
 		} else if(strtolower($effect) == "repairbonus") {
@@ -2011,7 +2011,7 @@ class Fitting
 				$bonus = (1-$bonus)*100;
 			}
 
-			self::$shipStats->setTankAmpArmor(Statisitics::modTankBoost(self::$shipStats->getTankAmpArmor(), self::$shipStats->moduleCount, $bonus, "+", self::$shipStats->armorAmp));
+			self::$shipStats->setTankAmpArmor(Statistics::modTankBoost(self::$shipStats->getTankAmpArmor(), self::$shipStats->moduleCount, $bonus, "+", self::$shipStats->armorAmp));
 
 		} else if(strtolower($effect) == "upgradecost") {
 			self::$shipStats->setCalUsed($bonus+self::$shipStats->getCalUsed());
@@ -2080,70 +2080,70 @@ class Fitting
 
 		switch($modname_param) {
 			case "Legion Defensive - Adaptive Augmenter":
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "armor", "Tech III", "em", 25, "+", 3));
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "armor", "Tech III", "th", 25, "+", 3));
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "armor", "Tech III", "ki", 25, "+", 3));
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "armor", "Tech III", "ex", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", "Tech III", "em", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", "Tech III", "th", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", "Tech III", "ki", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", "Tech III", "ex", 25, "+", 3));
 			break;
 			case "Legion Defensive - Augmented Plating":
 				Fitting::$shipStats->setArmorAmount(Calculations::statOntoShip(Fitting::$shipStats->getArmorAmount(), 50, "+", "%", 1));
 			break;
 			case "Legion Defensive - Nanobot Injector":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "armorBoost", 10, "+"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "armorBoost", 10, "+"));
 			break;
 			case "Legion Defensive - Warfare Processor":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "war_bonus", 99, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "war_bonus", 99, "-"));
 			break;
 
 			case "Tengu Defensive - Adaptive Shielding":
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "shield", "Tech III", "em", 25, "+", 3));
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "shield", "Tech III", "th", 25, "+", 3));
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "shield", "Tech III", "ki", 25, "+", 3));
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "shield", "Tech III", "ex", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", "Tech III", "em", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", "Tech III", "th", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", "Tech III", "ki", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", "Tech III", "ex", 25, "+", 3));
 			break;
 			case "Tengu Defensive - Amplification Node":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "shieldBoost", 10, "+"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "shieldBoost", 10, "+"));
 			break;
 			case "Tengu Defensive - Supplemental Screening":
 				Fitting::$shipStats->setShieldAmount(Calculations::statOntoShip(Fitting::$shipStats->getShieldAmount(), 50, "+", "%", 1));
 			break;
 			case "Tengu Defensive - Warfare Processor":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "war_bonus", 99, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "war_bonus", 99, "-"));
 			break;
 
 			case "Loki Defensive - Adaptive Shielding":
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "shield", "Tech III", "em", 25, "+", 3));
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "shield", "Tech III", "th", 25, "+", 3));
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "shield", "Tech III", "ki", 25, "+", 3));
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "shield", "Tech III", "ex", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", "Tech III", "em", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", "Tech III", "th", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", "Tech III", "ki", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "shield", "Tech III", "ex", 25, "+", 3));
 			break;
 			case "Loki Defensive - Adaptive Augmenter":
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "armor", "Tech III", "em", 25, "+", 3));
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "armor", "Tech III", "th", 25, "+", 3));
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "armor", "Tech III", "ki", 25, "+", 3));
-				Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "armor", "Tech III", "ex", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", "Tech III", "em", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", "Tech III", "th", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", "Tech III", "ki", 25, "+", 3));
+				Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", "Tech III", "ex", 25, "+", 3));
 			break;
 			case "Loki Defensive - Amplification Node":
 				Fitting::$shipStats->setSigRadius(Calculations::statOntoShip(Fitting::$shipStats->getSigRadius(), (5*5), "+", "%", 1));
 			break;
 			case "Loki Defensive - Warfare Processor":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "war_bonus", 99, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "war_bonus", 99, "-"));
 			break;
 
 			case "Proteus Defensive - Adaptive Augmenter":
-					Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "armor", "Tech III", "em", 25, "+", 3));
-					Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "armor", "Tech III", "th", 25, "+", 3));
-					Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "armor", "Tech III", "ki", 25, "+", 3));
-					Fitting::$shipStats->setShipResists(Statisitics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shieldResistPos, "armor", "Tech III", "ex", 25, "+", 3));
+					Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", "Tech III", "em", 25, "+", 3));
+					Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", "Tech III", "th", 25, "+", 3));
+					Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", "Tech III", "ki", 25, "+", 3));
+					Fitting::$shipStats->setShipResists(Statistics::modShipResists(Fitting::$shipStats->getShipResists(), self::$shipStats->shieldResistPos, "armor", "Tech III", "ex", 25, "+", 3));
 			break;
 			case "Proteus Defensive - Nanobot Injector":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "armorboost", 50, "+"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "armorboost", 50, "+"));
 			break;
 			case "Proteus Defensive - Augmented Plating":
 				Fitting::$shipStats->setArmorAmount(Calculations::statOntoShip(Fitting::$shipStats->getArmorAmount(), (10*5), "+", "%", 1));
 			break;
 			case "Proteus Defensive - Warfare Processor":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "war_bonus", 99, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "war_bonus", 99, "-"));
 			break;
 		}
 
@@ -2216,65 +2216,65 @@ class Fitting
 
 		switch($modname_param) {
 			case "Legion Offensive - Drone Synthesis Projector":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "turretCap", 10, "-"));
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damagedr", 10, "+"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "turretCap", 10, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damagedr", 10, "+"));
 			break;
 			case "Legion Offensive - Assault Optimization":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageM", 25, "+"));
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofM", 5, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageM", 25, "+"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofM", 5, "-"));
 			break;
 			case "Legion Offensive - Liquid Crystal Magnifiers":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageL", 10, "+"));
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "turretCap", 10, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageL", 10, "+"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "turretCap", 10, "-"));
 			break;
 			case "Legion Offensive - Covert Reconfiguration":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "covert_cloak", 100, "-"));
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "turretCap", 10, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "covert_cloak", 100, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "turretCap", 10, "-"));
 			break;
 
 			case "Tengu Offensive - Accelerated Ejection Bay":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageki", 5, "+"));
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofM", 7.5, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageki", 5, "+"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofM", 7.5, "-"));
 			break;
 			case "Tengu Offensive - Rifling Launcher Pattern":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofM", 5, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofM", 5, "-"));
 			break;
 			case "Tengu Offensive - Magnetic Infusion Basin":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageH", 5, "+"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageH", 5, "+"));
 			break;
 			case "Tengu Offensive - Covert Reconfiguration":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofM", 5, "-"));
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "covert_cloak", 100, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofM", 5, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "covert_cloak", 100, "-"));
 			break;
 
 			case "Proteus Offensive - Dissonic Encoding Platform":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageH", 10, "+"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageH", 10, "+"));
 			break;
 			case "Proteus Offensive - Hybrid Propulsion Armature":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageH", 10, "+"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageH", 10, "+"));
 			break;
 			case "Proteus Offensive - Drone Synthesis Projector":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageH", 5, "+"));
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damagedr", 10, "+"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageH", 5, "+"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damagedr", 10, "+"));
 			break;
 			case "Proteus Offensive - Covert Reconfiguration":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageH", 5, "+"));
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "covert_cloak", 100, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageH", 5, "+"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "covert_cloak", 100, "-"));
 			break;
 
 			case "Loki Offensive - Turret Concurrence Registry":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageP", 10, "+"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "damageP", 10, "+"));
 			break;
 			case "Loki Offensive - Projectile Scoping Array":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofP", 7.5, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofP", 7.5, "-"));
 			break;
 			case "Loki Offensive - Hardpoint Efficiency Configuration":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofP", 7.5, "-"));
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofM", 7.5, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofP", 7.5, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofM", 7.5, "-"));
 			break;
 			case "Loki Offensive - Covert Reconfiguration":
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofP", 5, "-"));
-				Fitting::$shipStats->setShipEffects(Statisitics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "covert_cloak", 100, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "rofP", 5, "-"));
+				Fitting::$shipStats->setShipEffects(Statistics::modShipeffects(Fitting::$shipStats->getShipEffects(), self::$shipStats->moduleCount, "covert_cloak", 100, "-"));
 			break;
 
 		}

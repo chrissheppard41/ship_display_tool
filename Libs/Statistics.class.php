@@ -1,6 +1,6 @@
 <?php
 /**
- *  The Statisitics class
+ *  The Statistics class
  *  Handles the stats of the ship
  *
  *	@author Chris Sheppard (Spark's)
@@ -11,7 +11,7 @@
  *  Runs within EvE Dev killboard
  *
   */
-class Statisitics
+class Statistics
 {
 /**
  * modShipResists method
