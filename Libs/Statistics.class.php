@@ -338,7 +338,8 @@ class Statistics
 			}
 		} else {
 			if($_name != "Cargo"
-			&& $_name != "Fleet Hangar") {
+			&& $_name != "Fleet Hangar"
+			&& $_name != "Ship Hangar") {
 				if($_cat == 8) {
 					return 11;
 				}

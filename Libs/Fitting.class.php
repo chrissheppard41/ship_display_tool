@@ -99,6 +99,7 @@ class Fitting
 							if(self::advancedModuleSettings(strtolower($mods->item_->getAttribute("typeName"))) == "ab") {
 								self::$shipStats->setIsAB(true);
 							}
+
 							for($i = 0; $i < $mods->item_->getAttribute('itd_quantity'); $i++) {
 								self::$modSlots[$slot][self::$shipStats->moduleCount] = $this->moduleInformation($slot, $mods);
 								self::buildSettings($slot, $mods, $modData);
