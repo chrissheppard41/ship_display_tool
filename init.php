@@ -1239,7 +1239,13 @@ class FittingTools {
 			$arr[$i]['type'] = $value['type'];
 			$arr[$i]['duration'] = $value['duration'];
 
-			$arr[$i]['use'] = $cap/$value['duration'];
+			if($cap != 0 && $value['duration'] != 0) {
+				$arr[$i]['use'] = $cap/$value['duration'];
+			} else {
+				$arr[$i]['use'] = 0;
+			}
+
+
 		}
 
 		return $arr;
