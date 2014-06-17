@@ -1642,7 +1642,7 @@ class Fitting
 			if($groupID == "774") {
 				self::$shipStats->shieldDur = Statistics::modShieldDur(self::$shipStats->shieldDur, self::$shipStats->moduleCount, $bonus, "-", self::$shipStats->shieldAmp, true);
 			} else {
-				self::$shipStats->armorDur = Statistics::modShieldDur(self::$shipStats->armorDur, self::$shipStats->moduleCount, $bonus, "-", 1);
+				self::$shipStats->armorDur = Statistics::modShieldDur(self::$shipStats->armorDur, self::$shipStats->moduleCount, $bonus, "-", $stack = 1);
 			}
 		} else if($effect == "drawback") {
 			if($groupID == "773") {
