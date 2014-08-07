@@ -126,7 +126,7 @@
 
 						<ul id="km_posting">
 							<li>API: <span>{if (bool)$extid}Yes{else}No{/if}</span></li>
-							<li>Source: <span>{if $type == "API"}API{else if $type == "IP"}Manual{else if $type == "URL"}Fetch{/if}</span></li>
+							<li>Source: <span>{if $type == "API"}API{else if $type == "IP"}Manual{else if $type == "URL"}Fetch{else if $type == "CREST"}CREST{/if}</span></li>
 							<li>Damage: <span>{$getPilotDam}</span></li>
 							<li>Cost: <span>{$getPilotCos} isk</span></li>
 						</ul>
