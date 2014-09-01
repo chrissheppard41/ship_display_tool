@@ -1377,6 +1377,7 @@ class FittingTools {
 				if($total != 0) {
 					$arr[$i]['dps'] = ($total/$averagedps);
 				}
+				//\Misc::pre($arr);
 				Fitting::$shipStats->setDamageGun($arr);
 			}
 		}
@@ -1409,7 +1410,7 @@ class FittingTools {
 			if($dex != "M") {
 				$rof = self::setDamageModSkills("rof".$dex, $value['rof'.$dex], $value['techlevel']);
 				$dMod = self::setDamageModSkills("damage".$dex, $value['damage'.$dex], $value['techlevel']);
-				//echo $rof." - ".$dMod;
+				//echo $rof." - ".$dMod." - ".$value['damage'.$dex]."<br />";
 
 				$em = $value['emDamage'];
 				$ex = $value['exDamage'];
@@ -1427,7 +1428,6 @@ class FittingTools {
 				|| Fitting::$shipStats->getShipIcon() == 4308) {
 					Fitting::$shipStats->setRSize("Large");
 				}
-
 				if(self::isSmartBomb(strtolower($value['name']))) {
 					$rof = Calculations::statOntoShip($rof, 25,"-","%", 1);
 				}
@@ -1439,13 +1439,25 @@ class FittingTools {
 							|| $effect['effect'] == "rofH"
 							|| $effect['effect'] == "rofL") {
 								if($dex == "P") {
-									$rof = Calculations::statOntoShip($rof, (5*$effect['bonus']),"-","%", 1);
+									if($effect['type'] == "=") {
+										$rof = Calculations::statOntoShip($rof, $effect['bonus'],"-","%", 1);
+									} else {
+										$rof = Calculations::statOntoShip($rof, (5*$effect['bonus']),"-","%", 1);
+									}
 								}
 								if($dex == "H") {
-									$rof = Calculations::statOntoShip($rof, (5*$effect['bonus']),"-","%", 1);
+									if($effect['type'] == "=") {
+										$rof = Calculations::statOntoShip($rof, $effect['bonus'],"-","%", 1);
+									} else {
+										$rof = Calculations::statOntoShip($rof, (5*$effect['bonus']),"-","%", 1);
+									}
 								}
 								if($dex == "L") {
-									$rof = Calculations::statOntoShip($rof, (5*$effect['bonus']),"-","%", 1);
+									if($effect['type'] == "=") {
+										$rof = Calculations::statOntoShip($rof, $effect['bonus'],"-","%", 1);
+									} else {
+										$rof = Calculations::statOntoShip($rof, (5*$effect['bonus']),"-","%", 1);
+									}
 								}
 							} else if($effect['effect'] == "damageP"
 								   || $effect['effect'] == "damageH"

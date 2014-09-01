@@ -127,7 +127,7 @@ class Fitting
 						$ammocharge = $ammo->item_->getAttribute("usedlauncher");
 
 						foreach(self::$modSlots[1] as $m => $module) {
-							if($ammocharge == $module["groupID"] || ($module["groupID"] == 511 && $ammocharge == 509)) {// Assault Missile Lauchers uses same ammo as Standard Missile Lauchers
+							if($ammocharge == $module["groupID"] || ($module["groupID"] == 511 && $ammocharge == 509) || ($module["groupID"] == 1245 && $ammocharge == 510)) {// Assault Missile Lauchers uses same ammo as Standard Missile Lauchers
 								self::$modSlots[10][$m] = $this->moduleInformation(10, $ammo);
 								self::buildSettings(10, $ammo, $modData);
 							}
@@ -1433,7 +1433,7 @@ class Fitting
 			if($groupID == "212" || $groupID == "210") {
 				self::$shipStats->setSensorBooster(Statistics::modScanning(self::$shipStats->getSensorBooster(), self::$shipStats->moduleCount, 'scan', $bonus, 'negsc', self::$shipStats->scan, "+", $slotOrder));
 				self::$shipStats->sensorbooster[] = self::$shipStats->moduleCount;
-			} else if($groupID == "208") {
+			} else if($groupID == "208" || $groupID == "290") {
 			} else {
 				self::$shipStats->setScan(Calculations::statOntoShip(self::$shipStats->getScan(), $bonus, "+", $mode, self::$shipStats->scan));
 				self::$shipStats->scan++;

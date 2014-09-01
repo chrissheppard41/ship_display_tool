@@ -641,7 +641,7 @@ class ShipEffect
  */
 	public static function bonuseffect($_input, $_bonus) {
 
-		if($_bonus == 100) return "=";
+		if($_bonus >= 25) return "=";
 
 		if(strstr($_input,"reduction")) {
 			return "-";
